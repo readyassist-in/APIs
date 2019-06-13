@@ -55,7 +55,7 @@
   </tr>
 </table>
 
-  # Prerequist
+  # Prerequisite
   So what are the basic requirements before using these API's are given below:
   <br />
   <ol>
@@ -64,10 +64,132 @@
     .Net and many more.</li>
     <li>You have to install any database here whether it is an SQL(MongoDB), No SQL(mySql, Orcale Server) or GraphQL.</li>
     <li>Database can also be hosted on the Online Platforms also like GCP, AWS, Microsoft Azure, M-Lab, MongoDB Atlas.</li>
-    <li> Now to test the API's there is a need of the API development environment, and flexibly integrates with the software development cycle like Postman.</li>
+    <li>Now to test the API's there is a need of the API development environment, and flexibly integrates with the software development cycle like Postman.</li>
   </ol>
   
   
+  # Routes For API
+  So for now we are in designing phase So we consider our base URL for the API's as 
+  ```
+  https://localhost:3000/
+  ```
   
+  and It will be cover with the Role based Access control with the help of express js and we also shown below in the Authentication
+
+## Authentication  
+I used express-session to manage sessions to authenticate. We have isUserLoggedIn, isUserLoggedOut middleware function which checks if the user is authenticated or not. The session token is stored in the database using connect-mongo package and is deleted when the user logout
   
+  ```
+  async function isUserLoggedIn (req, res, next) {
+  try {
+    if (!(req.session && req.session.user)) {
+      return res.status(401).send({
+        error: "Unauthorized Access!"
+      });
+    }else {
+      const user = await User.findOne({ _id : req.session.user._id })
+      if(user) {
+        next();
+      } else {
+        req.session.user = null;
+        return res.status(401).send({
+          error: "Unauthorized Access!"
+        });
+      }
+    }
+  } catch(e) {
+    res.status(400).send({
+      error: e
+    })
+  }
+}
+
+
+// Function to check whether the user is logged out
+function isUserLoggedOut (req, res, next) {
+  if (req.session && req.session.user) {
+    return res.status(200).send({
+      message: "User already Logged In!"
+    });
+  }
+  next();
+}
+
+module.exports = {
+  isUserLoggedIn,
+  isUserLoggedOut
+}
+  ```
+  
+  # Techanical Routes
+  
+  <table>
+  <tr>
+     <th>S.No.</th>
+     <th>Route</th>
+     <th>Method</th>
+     <th>Parameters</th>
+     <th>Description</th>
+  </tr>
+  <tr>
+    <td>1.</td>
+    <td>/mech/login</td>
+    <td>POST</td>
+    <td>
+      <ul>
+         <li>ID</li>
+         <li>Password</li>
+         <li>3 Images</li>
+      </ul>
+    </td>
+    <td>For Login into the System</td>
+  </tr>
+  
+  <tr>
+    <td>2.</td>
+    <td>/Customer/:id</td>
+    <td>GET</td>
+    <td>
+      <ul>
+         <li>Name</li>
+         <li>Location</li>
+         <li>Contact Number (Scrap Number)</li>
+      </ul>
+    </td>
+    <td>Getting all the details of customers</td>
+  </tr>
+  
+  <tr>
+    <td>3.</td>
+    <td>/mech/:id</td>
+    <td>GET</td>
+    <td>
+      <ul>
+         <li>ID</li>
+         <li>Password</li>
+         <li>Account Details</li>
+         <li>Photo_of_the Mechanic</li>
+      </ul>
+    </td>
+    <td>All the details So can see his dashboard</td>
+  </tr>
+  
+  <tr>
+    <td>4.</td>
+    <td>/customer/:id</td>
+    <td>PUT</td>
+    <td>
+      <ul>
+         <li>Customer ID</li>
+         <li>Password</li>
+         <li>Work_Completed</li>
+        <li>Purchasing</li>
+        <li>Purchasing_Part_Name(array)*</li>
+        <li>Purchasinf_Cost(array)*</li>
+      </ul>
+    </td>
+    <td>For updating the customers Schema's after finishing the Work.</td>
+  </tr>
+  </table>
+  *this is not mandatory parameters to pass into the API's
   
