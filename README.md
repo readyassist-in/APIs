@@ -280,6 +280,71 @@ module.exports = {
 
 </table>
 
-
+# HR Routes
+<table>
+  <tr>
+    <th>S.No.</th>
+     <th>Route</th>
+     <th>Method</th>
+     <th>Parameters</th>
+     <th>Description</th>
+  </tr>
+  
+  
+  <tr>
+    <td>1.</td>
+     <td>/mech/:id</td>
+     <td>GET</td>
+     <td>
+       <ul>
+         <li>Name</li>
+         <li>technician Status</li>
+       </ul>
+    </td>
+     <td>To check the Attendance of techanician</td>
+  </tr>
+  
+  <tr>
+    <td>2.</td>
+     <td>/emp/:id</td>
+     <td>GET</td>
+     <td>
+       <ul>
+         <li>Name</li>
+         <li>Employee Status</li>
+       </ul>
+    </td>
+     <td>To check the Attendance of Employees and also the othr features from this only(ex:birthday).</td>
+  </tr>
+  
+  <tr>
+    <td>3.</td>
+     <td>/hr/message/:id</td>
+     <td>POST</td>
+     <td>
+       <ul>
+         <li>Message content</li>
+         <li>To whom check through Id in the database</li>
+       </ul>
+    </td>
+     <td>Messaging feature between different departments.</td>
+  </tr>
+  
+  <tr>
+    <td>4.</td>
+     <td>/hr/:id</td>
+     <td>GET</td>
+     <td>
+       <ul>
+         <li>query</li>
+         <li>date-time</li>
+         <li>status(solved or not)</li>
+       </ul>
+    </td>
+     <td>getting diffeent query and solved them.</td>
+  </tr>
+  
+  
+</table>
 
   *<i>this is not mandatory parameters to pass into the API's</i>
