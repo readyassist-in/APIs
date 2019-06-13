@@ -121,7 +121,7 @@ module.exports = {
 }
   ```
   
-  # Techanical Routes
+  # Technician Routes
   
   <table>
   <tr>
@@ -147,7 +147,7 @@ module.exports = {
   
   <tr>
     <td>2.</td>
-    <td>/Customer/:id</td>
+    <td>/customer/:id</td>
     <td>GET</td>
     <td>
       <ul>
@@ -191,5 +191,95 @@ module.exports = {
     <td>For updating the customers Schema's after finishing the Work.</td>
   </tr>
   </table>
-  *this is not mandatory parameters to pass into the API's
+  *<i>this is not mandatory parameters to pass into the API's</i>
   
+  # Finance Routes
+ <table>
+  <tr>
+     <th>S.No.</th>
+     <th>Route</th>
+     <th>Method</th>
+     <th>Parameters</th>
+     <th>Description</th>
+  </tr>
+  
+  <tr>
+    <td>1.</td>
+    <td>/client/register</td>
+    <td>POST</td>
+    <td>
+      <ul>
+         <li>Client ID</li>
+         <li>Password</li>
+         <li>Work With them</li>
+        <li>Messages(array)*</li>
+        <li>Dates_of_meeting(array)*</li>
+        <li>Notes(Object)*</li>
+      </ul>
+    </td>
+    <td>Creating a new Client.</td>
+  </tr>
+  
+  
+  <tr>
+    <td>2.</td>
+    <td>/client/:id</td>
+    <td> PUT/GET</td>
+    <td>
+      <ul>
+         <li>Client ID</li>
+         <li>Password</li>
+         <li>Work With them</li>
+        <li>Messages(array)*</li>
+        <li>Dates_of_meeting(array)*</li>
+        <li>Notes(Object)*</li>
+      </ul>
+    </td>
+    <td>Fixing the meeting and chat also.Apart from this Finance can also Set notes to a particular Client.</td>
+  </tr>
+
+  <tr>
+    <td>3.</td>
+    <td>/mech/:id</td>
+    <td> PUT/GET</td>
+    <td>
+      <ul>
+         <li>ID</li>
+         <li>Password</li>
+         <li>Account Details</li>
+         <li>Photo_of_the Mechanic</li>
+      </ul>
+    </td>
+    <td>So that finance team can update the Accounts of the Technician.</td>
+  </tr>
+  
+  <tr>
+    <td>4.</td>
+    <td>/dataAnyaltics</td>
+    <td>GET</td>
+    <td>
+      <ul>
+        <li>Data[in Array or json]</li>
+      </ul>
+    </td>
+    <td>This will directly come from the database so that any FrontEnd Framework like React Js and Angular JS can be used to make the Graphs</td>
+  </tr>
+
+  <tr>
+    <td>5.</td>
+    <td>/client/:id</td>
+    <td>PATCH</td>
+    <td>
+      <ul>
+        <li>Different Link which is shown in the wireframe</li>
+      </ul>
+    </td>
+    <td>For getting more details and set additional features to the Client.</td>
+  </tr>
+
+
+</table>
+
+
+
+  *<i>this is not mandatory parameters to pass into the API's</i>
