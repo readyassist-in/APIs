@@ -1,4 +1,6 @@
-# APIs
+# APIs Documentation
+
+If you want to get clear Idea of this API docuemntation please refer to this link for the <a href="https://github.com/readyassist-in/WireFrames">wireframe</a>
 
 # Status Code
 
@@ -66,7 +68,14 @@
     <li>Database can also be hosted on the Online Platforms also like GCP, AWS, Microsoft Azure, M-Lab, MongoDB Atlas.</li>
     <li>Now to test the API's there is a need of the API development environment, and flexibly integrates with the software development cycle like Postman.</li>
   </ol>
-  
+  <ol>
+  <li><a href="http://nodejs.org/">For Node Js Click me</a></li>
+  <li><a href="https://docs.mongodb.com">For MongoDB Click me</a></li>
+  <li><a href="http://flask.pocoo.org/docs/0.12/quickstart/">For Python Flask</a></li>
+  <li><a href="https://console.cloud.google.com/">For GCP Click me</a></li>
+  <li><a href="https://heroku.com">For Heroku Cick Me</a></li>
+  <li><a href="https://www.getpostman.com/downloads/">For Postman Click me(For API Environmnet)</a></li>
+  </ol>
   
   # Routes For API
   So for now we are in designing phase So we consider our base URL for the API's as 
@@ -343,8 +352,75 @@ module.exports = {
     </td>
      <td>getting diffeent query and solved them.</td>
   </tr>
-  
-  
 </table>
 
   *<i>this is not mandatory parameters to pass into the API's</i>
+  
+  # Fleet Routes
+  
+<table>
+  <tr>
+    <th>S.No.</th>
+     <th>Route</th>
+     <th>Method</th>
+     <th>Parameters</th>
+     <th>Description</th>
+  </tr>
+  
+  <tr>
+    <td>1.</td>
+     <td>/mech/:id</td>
+     <td>GET</td>
+     <td>
+       <ul>
+         <li>ID</li>
+         <li>Password</li>
+         <li>Account Details</li>
+         <li>Photo_of_the Mechanic</li>
+         <li>Status of the Mechanic</li>
+       </ul>
+    </td>
+     <td>Getting the status of the Technician.</td>
+  </tr>
+  
+  <tr>
+    <td>2.</td>
+     <td>/fleet/:hotspot</td>
+     <td>GET</td>
+     <td>
+       <ul>
+         <li>Hostspot</li>
+         <li>No_of_technician_active</li>
+         <li>customer_active</li>
+         <li>message(array)*</li>
+       </ul>
+    </td>
+     <td>Getting all the maps details from the API.</td>
+  </tr>
+  
+  
+  <tr>
+    <td>3.</td>
+     <td>/fleet/message/:id</td>
+     <td>POST/PUT</td>
+     <td>
+       <ul>
+         <li>Message content</li>
+         <li>To whom check through Id in the database</li>
+       </ul>
+    </td>
+     <td>Messaging feature between different departments and getting hostory also.</td>
+  </tr>
+  
+  
+  
+  
+  
+</table>
+  
+  
+  # Deployment
+This api can be hosted on platform like heroku, aws, and others. MongoDB Atlas or Matlab can be used for remote database.
+For instance, the application can be deployed on Heroku by creating and registering an account. Following, create a new app and choose a deployment method (terminal or github) and follow the instruction there. Remote database can be created using Mongodb Atlas or Matlab.
+For Mongodb Atlas, you need to just to create your account and make a new cluster and link the cluster to your application through a URL. Following the given steps, you would have a remote application up and running.
+  
